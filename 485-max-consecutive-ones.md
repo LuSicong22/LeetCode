@@ -2,7 +2,7 @@
 
 https://leetcode.com/problems/max-consecutive-ones/
 
-## Problem Description
+### Problem Description
 
 ```
 Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -38,6 +38,13 @@ var findMaxConsecutiveOnes = function(nums) {
     return max;
 };
 ```
+```javascript
+let findMaxConsecutiveOnes = (nums, ans = 0) => {
+    for (let i = 0, cur = 0; i < nums.length; ++i)
+        ans = Math.max(ans, cur = nums[i] == 0 ? 0 : cur + 1);
+    return ans;
+};
+```
 
 Java:
 
@@ -59,4 +66,12 @@ class Solution {
         return max;
     }
 }
+```
+```java
+public int findMaxConsecutiveOnes(int[] nums) {
+        int maxHere = 0, max = 0;
+        for (int n : nums)
+            max = Math.max(max, maxHere = n == 0 ? 0 : maxHere + 1);
+        return max; 
+    } 
 ```
