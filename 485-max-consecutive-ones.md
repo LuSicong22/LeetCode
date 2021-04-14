@@ -1,4 +1,4 @@
-## Problem Link（485. Max Consecutive Ones）
+## 485. Max Consecutive Ones (Easy)
 
 https://leetcode.com/problems/max-consecutive-ones/
 
