@@ -1,0 +1,49 @@
+## 1089. Duplicate Zeros (Easy)
+
+https://leetcode.com/problems/duplicate-zeros/
+
+### Problem Description
+
+Given a fixed length array arr of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.
+
+Note that elements beyond the length of the original array are not written.
+
+Do the above modifications to the input array in place, do not return anything from your function.
+ 
+
+**Example 1**:
+```
+Input: [1,0,2,3,0,4,5,0]
+Output: null
+Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+
+```
+### Solutions
+
+Javascript:
+
+```javascript
+var duplicateZeros = function(arr) {
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]==0){
+            arr.splice(i,0,0);
+            arr.pop();
+            i++;
+        }
+    }
+};
+```
+
+
+Java:
+
+```java
+public void duplicateZeros(int[] a) {
+  int i = 0, sh = 0;
+  for (i = 0; sh + i < a.length; ++i) sh += a[i] == 0 ? 1 : 0;
+  for (i = i - 1; sh > 0; --i) {
+    if (i + sh < a.length) a[i + sh] = a[i];
+    if (a[i] == 0) a[i + --sh] = a[i];
+  }
+}
+```
