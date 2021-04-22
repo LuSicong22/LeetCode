@@ -1,0 +1,48 @@
+## 1346. Check If N and Its Double Exist (Easy)
+
+https://leetcode.com/problems/check-if-n-and-its-double-exist/
+
+### Problem Description
+
+Given an array arr of integers, check if there exists two integers N and M such that N is the double of M ( i.e. N = 2 * M).
+
+**Example 1**:
+```
+Input: arr = [10,2,5,3]
+Output: true
+Explanation: N = 10 is the double of M = 5,that is, 10 = 2 * 5.
+```
+### Solutions
+
+Javascript:
+
+```javascript
+var checkIfExist = function(arr) {
+    let seen = new Set();
+    for(let i of arr){
+        if(seen.has(i*2)||(i%2==0)&&seen.has(i/2)){
+            return true;
+        }
+        seen.add(i);
+    }
+    return false;
+};
+```
+
+
+Java:
+
+```java
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Set<Integer> seen= new HashSet<>();
+        for(int i:arr){
+            if(seen.contains(i*2)||i%2==0&&seen.contains(i/2)){
+                return true;
+            }
+            seen.add(i);
+        }
+        return false;
+    }
+}
+```
