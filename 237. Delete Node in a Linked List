@@ -1,0 +1,16 @@
+## 104. Maximum Depth of Binary Tree (Easy)
+https://leetcode.com/problems/delete-node-in-a-linked-list/
+
+
+### Solutions
+
+Java:
+
+```java
+//We can't really delete the node, but we can kinda achieve the same effect by instead removing the next node after copying its data into the node that we were asked to delete.
+ public void deleteNode(ListNode node) {
+         node.val=node.next.val;
+    node.next=node.next.next;
+    }
+}
+```
