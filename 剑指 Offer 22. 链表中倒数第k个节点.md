@@ -17,9 +17,21 @@ class Solution {
     }
 }
 ```
+Go
+```go
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+    count := 0
+    for tmp:=head;tmp != nil;tmp=tmp.Next {
+        count++
+    }
+    for i:=0;i<count-k;i++ {
+        head=head.Next
+    }
+    return head
+}
+```
 
 ## Method 2: Tow pointers
-
 ```java
 class Solution {
     public ListNode getKthFromEnd(ListNode head, int k) {
@@ -36,5 +48,20 @@ class Solution {
 
         return slow;
     }
+}
+```
+Go
+```go
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+    slow, fast := head, head
+    for fast != nil && k>0 {
+        fast = fast.Next
+        k--
+    }
+    for fast !=nil {
+        slow = slow.Next
+        fast = fast.Next
+    }
+    return slow
 }
 ```
