@@ -1,0 +1,62 @@
+Go
+1.
+```go
+func reverseWords(s string) string {
+  ss := strings.Split(s," ")
+  for i,s := range ss {
+      ss[i]=reverse(s)
+  }
+  return strings.Join(ss," ")
+}
+
+func reverse(s string) (res string) {
+    for _,v:=range s {
+        res = string(v) + res
+    }
+    return 
+}
+```
+2. faster than 1
+```go
+func reverseWords(s string) string {
+	ss := strings.Split(s, " ")
+	for i, s := range ss {
+		ss[i] = revers(s)
+	}
+	return strings.Join(ss, " ")
+}
+
+func revers(s string) string {
+	bytes := []byte(s)
+	i, j := 0, len(bytes)-1
+	for i < j {
+		bytes[i], bytes[j] = bytes[j], bytes[i]
+		i++
+		j--
+	}
+	return string(bytes)
+}
+```
+3. Space O(1)
+```go
+func reverseWords(s string) string {
+    a := []byte(s)
+    i:=0
+    for i<len(a) {
+        left:=i
+        for i<len(a)&&a[i]!=' ' {
+            i++
+        }
+        right := i-1
+        for left<right {
+            a[left],a[right]=a[right],a[left]
+            left++
+            right--
+        }
+        for i<len(a)&&a[i]==' ' {
+            i++
+        }
+    }
+    return string(a)
+}
+````
