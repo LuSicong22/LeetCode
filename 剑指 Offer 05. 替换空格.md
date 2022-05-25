@@ -12,3 +12,9 @@ func replaceSpace(s string) string {
     return res
 }
 ```
+string.Replace()
+```go
+func replaceSpace(s string) string {
+    return strings.Replace(s," ","%20",-1)
+}
+```
