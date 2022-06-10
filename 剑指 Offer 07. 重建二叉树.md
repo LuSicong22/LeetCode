@@ -1,12 +1,5 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
+Java
+```java
 class Solution {
     private Map<Integer,Integer> indexMap=new HashMap<Integer,Integer>();
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -37,3 +30,4 @@ class Solution {
         return root;
     }
 }
+```
